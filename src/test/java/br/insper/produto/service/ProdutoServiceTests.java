@@ -51,7 +51,7 @@ public class ProdutoServiceTests {
         Assertions.assertEquals(15.0, produtoCriado.getPreco());
         Assertions.assertEquals(50, produtoCriado.getQuantidadeEstoque());
     }
-//    teste para verificar se o produto foi criado com sucesso
+//    teste para verificar se o produto foi criado
 
     @Test
     void test_buscarProdutoPorIdComSucesso() {
