@@ -51,7 +51,6 @@ public class ProdutoServiceTests {
         Assertions.assertEquals(15.0, produtoCriado.getPreco());
         Assertions.assertEquals(50, produtoCriado.getQuantidadeEstoque());
     }
-//    sla
 
     @Test
     void test_buscarProdutoPorIdComSucesso() {
@@ -120,5 +119,22 @@ public class ProdutoServiceTests {
                 () -> produtoService.diminuirEstoque("1", 10));
 
         Assertions.assertEquals("Quantidade em estoque insuficiente.", exception.getMessage());
+    }
+
+    @Test
+    void test_equalsProdutos() {
+        Produto produto1 = new Produto();
+        produto1.setId("1");
+        produto1.setNome("Produto Teste");
+        produto1.setPreco(15.0);
+        produto1.setQuantidadeEstoque(50);
+
+        Produto produto2 = new Produto();
+        produto2.setId("1");
+        produto2.setNome("Produto Teste");
+        produto2.setPreco(15.0);
+        produto2.setQuantidadeEstoque(50);
+
+        Assertions.assertEquals(produto1, produto2);
     }
 }
