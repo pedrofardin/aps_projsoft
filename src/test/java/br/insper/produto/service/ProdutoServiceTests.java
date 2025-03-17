@@ -51,6 +51,7 @@ public class ProdutoServiceTests {
         Assertions.assertEquals(15.0, produtoCriado.getPreco());
         Assertions.assertEquals(50, produtoCriado.getQuantidadeEstoque());
     }
+//    sla
 
     @Test
     void test_buscarProdutoPorIdComSucesso() {
