@@ -1,16 +1,24 @@
 package br.insper.produto.produto;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "produtos")
 public class Produto {
 
-    @Id
     private String id;
     private String nome;
     private double preco;
     private int quantidadeEstoque;
+
+    public Produto(String id, String nome, double preco, int quantidadeEstoque) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
+
+    public Produto() {
+    }
 
     public String getId() {
         return id;
@@ -50,5 +58,13 @@ public class Produto {
         } else {
             throw new IllegalArgumentException("Quantidade em estoque insuficiente.");
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Produto produto = (Produto) obj;
+        return id != null && id.equals(produto.id);
     }
 }
